@@ -1,10 +1,12 @@
 # Zombie_Map_App
 
-Go to ZombieMap
+**Go to ZombieMap folder**
 
-prerequies:
+  
+**prerequis:**
 expo on your device
 
-commands:
+ 
+**commands:**
 npm install
 expo start
