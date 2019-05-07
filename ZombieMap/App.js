@@ -1,21 +1,87 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+// import React, { Component } from 'react';
+// import {
+//   Platform,
+//   StyleSheet,
+//   Text,
+//   View,
+//   StatusBar
+// } from 'react-native';
+
+
+// const instructions = Platform.select({
+//   ios: 'Press Cmd+R to reload,\n' +
+//     'Cmd+D or shake for dev menu',
+//   android: 'Double tap R on your keyboard to reload,\n' +
+//     'Shake or press menu button for dev menu',
+// });
+
+// export default class App extends React.Component {
+//   render() {
+//     return (
+//       <View style={styles.container}>
+//         <StatusBar
+//           barStyle="light-content"
+//           backgroundColor="#4F6D7A"
+//         />
+//         <Text style={styles.welcome}>
+//           Welcome to React Native!
+//         </Text>
+//         <Text style={styles.instructions}>
+//           To get started, edit App.js
+//         </Text>
+//         <Text style={styles.instructions}>
+//           {instructions}
+//         </Text>
+//       </View>
+//     );
+//   }
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#4F6D7A',
+//   },
+//   welcome: {
+//     fontSize: 20,
+//     textAlign: 'center',
+//     margin: 10,
+//     color: '#F5FCFF',
+//   },
+//   instructions: {
+//     textAlign: 'center',
+//     color: '#F5FCFF',
+//     marginBottom: 5,
+//   },
+// });
+
+
+import React, { Component } from 'react';
+import {
+  AppRegistry
+} from 'react-native';
+
+import Login from './src/screens/Login';
+import Secured from './src/screens/Secured';
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
-  }
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  state = {
+    isLoggedIn: false
+  }
+
+  render() {
+
+    if (this.state.isLoggedIn) 
+      return <Secured 
+          onLogoutPress={() => this.setState({isLoggedIn: false})}
+        />;
+    else 
+      return <Login 
+          onLoginPress={() => this.setState({isLoggedIn: true})}
+        />;
+  }
+
+}
