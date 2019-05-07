@@ -8,10 +8,14 @@ import {
     Alert,
     ActivityIndicator
 } from 'react-native';
-
+import { Container, Header, Content, Form, Item, Input, Label } from 'native-base';
 import Environment from '../../../Environment';
 
 export default class Login extends Component {
+
+    static navigationOptions = {
+        title: 'Home',
+    };
 
     state = {
         username: '',
@@ -63,19 +67,25 @@ export default class Login extends Component {
 
     render() {
         return (
+            <Container>
+              <Content>
+                <Form>
             <ScrollView style={{padding: 20}}>
-				<Text 
+				{/* <Text 
 					style={{fontSize: 27}}>
 					Login
-				</Text>
-				<TextInput
+				</Text> */}
+
+            {/* <Item fixedLabel> */}
+              {/* <Label>Username</Label> */}
+              <Input 
 					ref={component => this._username = component}
 					placeholder='Username' 
 					onChangeText={(username) => this.setState({username})}
 					autoFocus={true}
-					onFocus={this.clearUsername}
-				/>
-				<TextInput 
+					onFocus={this.clearUsername}/>
+            {/* </Item> */}
+				<Input 
 					ref={component => this._password = component}
 					placeholder='Password' 
 					onChangeText={(password) => this.setState({password})}
@@ -94,9 +104,12 @@ export default class Login extends Component {
 				<Button 
 					disabled={this.state.isLoggingIn||!this.state.username||!this.state.password}
 		      		onPress={this._userLogin}
-		      		title="Submit"
+		      		title="Se connecter"
 		      	/>
 	      </ScrollView>
+          </Form>
+        </Content>
+      </Container>
         )
     }
 }
