@@ -61,6 +61,7 @@ import React from 'react';
 import {createStackNavigator, createAppContainer} from "react-navigation";
 import Login from './src/screens/Login'
 import Secured from './src/screens/Secured'
+import Game from './src/screens/Game'
 
 const AppNavigator = createStackNavigator({
   Login: {
@@ -73,7 +74,7 @@ const AppNavigator = createStackNavigator({
     screen: Game,
   }
 }, {
-  initialRouteName: 'Game',
+  initialRouteName: 'Login',
 });
 
 const AppContainer = createAppContainer(AppNavigator);

@@ -1,3 +1,3 @@
 module.exports = {
-    CLIENT_API: 'heroku'
+    CLIENT_API: 'https://my-zombie-map.herokuapp.com'
 };
